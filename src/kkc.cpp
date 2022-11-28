@@ -349,6 +349,7 @@ Text kkcContextGetPreedit(KkcContext *context) {
 KkcEngine::KkcEngine(Instance *instance)
     : instance_(instance),
       factory_([this](InputContext &ic) { return new KkcState(this, ic); }) {
+  std::cerr << "constructor called" << std::endl;
 #if !GLIB_CHECK_VERSION(2, 36, 0)
     g_type_init();
 #endif
@@ -402,7 +403,9 @@ KkcEngine::KkcEngine(Instance *instance)
     });
 }
 
-KkcEngine::~KkcEngine() {}
+KkcEngine::~KkcEngine() {
+  std::cerr << "destructor called" << std::endl;
+}
 
 void KkcEngine::activate(const InputMethodEntry &, InputContextEvent &event) {
     auto &statusArea = event.inputContext()->statusArea();

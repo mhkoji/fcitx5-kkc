@@ -9,7 +9,7 @@ include(FeatureSummary)
 include(GNUInstallDirs)
 include(ECMUninstallTarget)
 
-option(ENABLE_QT "Enable Qt for GUI configuration" On)
+option(ENABLE_QT "Enable Qt for GUI configuration" OFF)
 
 find_package(PkgConfig REQUIRED)
 find_package(Fcitx5Core 5.0.6 REQUIRED)
